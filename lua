@@ -88,7 +88,7 @@ spawn(function()
     end
 end)
 -- init
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/UI-Librarys/main/Venyx%20UI"))()
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))()
 local venyx = library.new("Cut tay", 5013109572,os.date())
 
 local page = venyx:addPage("Main", 13503612303)
