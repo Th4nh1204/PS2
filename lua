@@ -1,3 +1,10 @@
+getgenv().config = {
+        DayCare = true,
+        NamePetDaycare = "Frostbyte Yeti", --Name Ur Pet DayCare
+        NumberPetDaycare = 30,
+        AntiAFK = true,
+    }
+
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local Library = require(game.ReplicatedStorage:WaitForChild('Library'))
 local pets = Library.Save.Get().Inventory.Pet
@@ -15,9 +22,10 @@ Tab:AddToggle({
 	Default = getgenv().config.DayCare,
 	Callback = function(daycarev1)
         getgenv().config.DayCare = daycarev1
-        if getgenv().config.DayCare then
             for i, v in pairs(pets) do
                 if v["id"] == getgenv().config.NamePetDaycare then
+                    PetID = i
+                    print(PetID)
                     if getgenv().config.DayCare == true then
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = 
                             CFrame.new(130.3366241455078, 16.55925750732422, 509.1855163574219)
@@ -28,7 +36,7 @@ Tab:AddToggle({
                         while getgenv().config.DayCare do
                             local args = {
                                 [1] = {
-                                    [i] = getgenv().config.NumberPetDaycare
+                                    [PetID] = getgenv().config.NumberPetDaycare
                                 }
                             }
                             game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Daycare: Enroll"):InvokeServer(unpack(args))
@@ -38,7 +46,6 @@ Tab:AddToggle({
                 end
             end
         end
-    end
 end
 })
 Tab:AddToggle({
