@@ -39,7 +39,8 @@ Tab:AddToggle({
             end
         end
     end
-end})
+end
+})
 Tab:AddToggle({
 	Name = "AntiAFK Jump",
 	Default = getgenv().config.AntiAFK,
@@ -53,5 +54,6 @@ Tab:AddToggle({
                 task.wait(5)
             end
         end
-    end})
+    end
+})
 OrionLib:Init()
